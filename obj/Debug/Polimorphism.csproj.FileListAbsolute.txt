@@ -1,0 +1,7 @@
+C:\Users\Arshak\source\repos\Polimorphism\Polimorphism\bin\Debug\Polimorphism.exe.config
+C:\Users\Arshak\source\repos\Polimorphism\Polimorphism\bin\Debug\Polimorphism.exe
+C:\Users\Arshak\source\repos\Polimorphism\Polimorphism\bin\Debug\Polimorphism.pdb
+C:\Users\Arshak\source\repos\Polimorphism\Polimorphism\obj\Debug\Polimorphism.csprojAssemblyReference.cache
+C:\Users\Arshak\source\repos\Polimorphism\Polimorphism\obj\Debug\Polimorphism.csproj.CoreCompileInputs.cache
+C:\Users\Arshak\source\repos\Polimorphism\Polimorphism\obj\Debug\Polimorphism.exe
+C:\Users\Arshak\source\repos\Polimorphism\Polimorphism\obj\Debug\Polimorphism.pdb
