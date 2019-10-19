@@ -6,133 +6,116 @@ using System.Threading.Tasks;
 
 namespace Polimorphism
 {
-    abstract class Teacher
+    interface IPaper1
     {
-        private string _person1;
-        public string Person1
-        {
-            get { return _person1; }
-            set { _person1 = value; }
-        }
-        public Teacher(string _person1)
-        {
-            this.Person1 = _person1;
-        }
-        public virtual void TeachersPostion()
-        {
-            Console.WriteLine($"Name is : {Person1}");
-
-        }
-
+        int Size { get; set; }
+        void NewsPaper();
     }
-     class School : Teacher
+    interface IPaper2
     {
-        public string Profetion { get; set; }
-        public int TeachersMoney { get; set; }
-        public School(string _person1, string profetion, int teachersmoney): base(_person1)
+        int Age { get; set; }
+        void News();
+    }
+
+    public class Book:IPaper1,IPaper2
+    {
+        public int Size { get; set; }
+        public int Age
         {
-            Profetion = profetion;
-            TeachersMoney = teachersmoney;
-        }
-        public override void TeachersPostion()
-        {
-            Console.WriteLine($"teacher name is: {Person1} hi is spetiolist of {Profetion} ");
-            if  (TeachersMoney >= 150000)
+            set
             {
-                Console.WriteLine($"{Person1} is working ");
-            }
-                
-                
-                 
-        }
-    }
-    public class Bank
-    {
-        public int Money { get; set; }
-        public int StudentMoney { get; set; }
-        public virtual void Cash()
-        {
-
-        }
-
-    }
-    public class Student :Bank
-    {
-        private string name;
-        public string Name
-        {
-            get { return name; }
-            set { name = value; }
-        }
-        public int Age { get; set; }
-        public Student(string name, int age)
-
-        {
-            this.Name = name;
-            this.Age = age;
-        }
-       
-
-        public void GoingToSchoolByCar()
-        {
-           
-            
-            
-            if (StudentMoney > 50000)
-            {
-                for (int i = 0; i < 5; i++)
+                if (value > 10)
                 {
-                    Console.WriteLine("i have money and i going to school");
-                    System.Threading.Thread.Sleep(1000);
-                    if (i == 5)
-                    {
-                       
-                        Console.WriteLine("i have no money");
-                    }
+                    Console.WriteLine("old");
                 }
-                Console.WriteLine("Take money from Bank");
-            }
-            
-
-        }
-        public  void Cash()
-        {
-            
-
-            if (Money > 0)
-            {
-                for (int i = 0; i < 3; i++)
+                else
                 {
-                    Console.WriteLine("Sharunakum enq gnal dasi ");
-                    System.Threading.Thread.Sleep(1000);
+                    Console.WriteLine(" new");
                 }
-            }
 
+            }
+            get
+            {
+                { return Age; }
+            }
         }
 
-    } 
-    class Program
+
+            public void News()
+        {
+            Console.WriteLine($"this{Age} size is {Size}");
+        }
+        public void NewsPaper()
+        {
+            Console.WriteLine("Finito");
+
+        }
+    }
+    interface IPen
     {
+        string Colar { get; set; }
+        bool Open();
+        bool Close();
+        void Write();
+    }
+    public class Parker : IPen
+    {
+        public string Colar { get; set; }
+        public bool Open()
+        {
+            return true;
+        }
+        public bool Close()
+        {
+            return false;
+        }
+        public void Write()
+        {
+            Console.WriteLine($"This pan is {Colar} ");
+        }
+    }
+    public class Flom : IPen 
+    {
+        public string Colar { get; set; }
+        public bool Open()
+        {
+            return true;
+        }
+        public bool Close()
+        {
+            return false;
+        }
+        public void Write()
+        {
+            Console.WriteLine($"Perfect drowing flom of {Colar}");
+        }
+            
+    }
+        
+    public class Program
+    {
+        
+            
         static void Main(string[] args)
         {
-            Teacher teacher = new School("Arshak", "History", 200000);
-            teacher.TeachersPostion();
-            Student student = new Student("Albert",24);
-            student.StudentMoney = (60000);
-            student.GoingToSchoolByCar();
-            Bank bank = new Bank();
-            Console.WriteLine("Banki qanaky asa");
-            bank.Money = Convert.ToInt32 (Console.ReadLine());
-            bank.Cash();
-            if (bank.Money > 0)
-            {
-                for (int i = 0; i < 3; i++)
-                {
-                    Console.WriteLine("Sharunakum enq gnal dasi ");
-                    System.Threading.Thread.Sleep(1000);
-                }
-            }
 
+            Book book = new Book();
+            book.Size = 50;
+            Console.WriteLine("Book age ?");
+            book.Age = Convert.ToInt32(Console.ReadLine());
+            book.News();
+            book.NewsPaper();
+            Flom f = new Flom();
+            Parker p = new Parker();
+            f.Colar = "Red";
+            f.Write();
+            p.Colar = "blue";
+            p.Write();
+            p.Open();
+            Console.ReadKey();
         }
     }
 }
+        
+    
+
